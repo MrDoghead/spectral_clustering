@@ -35,9 +35,10 @@ def sign(X):
         v = X
     if v.ndim > 1:
         v = v.squeeze()
-    labels = np.zeros((n,))
-    for i in range(n):
-        labels[i] = 1 if v[i] >= 0 else 0
+    labels = (v > 0) * 1
+    # labels = np.zeros((n,))
+    # for i in range(n):
+        # labels[i] = 1 if v[i] >= 0 else 0
     return labels
 
 def k_means(
